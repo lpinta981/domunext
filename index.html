@@ -1,25 +1,304 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta DomuNext</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liderazgo Inspirador - Luis Armando Pinta Cajilema</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-color: #0d1b2a;
+      --secondary-color: #415a77;
+      --accent-color: #d4af37; /* Gold accent */
+      --text-color: #e0e1dd;
+      --bg-color: #040f1a;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* --- Header / Hero Section --- */
+    header.hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      color: #fff;
+      background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    }
+
+    header.hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 600;
+      margin: 0;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header.hero p {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      font-weight: 300;
+      max-width: 700px;
+      margin: 20px auto 0;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.5s;
+      animation-fill-mode: backwards;
+    }
+    
+    .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        font-size: 1.5rem;
+        animation: bounce 2s infinite;
+    }
+
+    /* --- General Content Styling --- */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+    
+    .section {
+      padding: 50px 40px;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: transform 0.3s ease;
+    }
+    
+    .section:hover {
+        transform: translateY(-5px);
+    }
+
+    .section h2 {
+      font-family: 'Lora', serif;
+      font-size: 2.5em;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: var(--accent-color);
+      text-align: center;
+    }
+
+    /* --- Specific Section Styles --- */
+    .about-me {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .about-me img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid var(--accent-color);
+        object-fit: cover;
+    }
+    
+    .about-me-content {
+        flex: 1;
+    }
+
+    .quote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.3em;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 25px;
+      margin: 30px auto;
+      max-width: 80%;
+      text-align: center;
+      color: #ddd;
+    }
+
+    /* --- Cards Section --- */
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+    
+    .card {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: background 0.3s ease;
+    }
+
+    .card:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .card i {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+    }
+    
+    .card h3 {
+        margin: 0;
+        font-size: 1.2em;
+        color: #fff;
+    }
+
+    /* --- Button --- */
+    a.button {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 30px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    a.button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+    }
+    
+    .center-button {
+        text-align: center;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9em;
+      color: #aaa;
+      background: var(--primary-color);
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* --- Animations --- */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+        40% {transform: translateY(-15px);}
+        60% {transform: translateY(-10px);}
+    }
+
+    /* --- Responsive Design --- */
+    @media (max-width: 768px) {
+        .about-me {
+            flex-direction: column;
+            text-align: center;
         }
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
+        
+        .section {
+            padding: 40px 25px;
         }
-    </style>
+    }
+  </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbw5CL4dsI1yYCQ2dTmZFz68gD3CnnTWc-Ga3FFvqfdjuaGDe4eTRqPc5tB7_ZXvCfTo/exec" allowfullscreen></iframe>
+  
+  <header class="hero">
+    <h1>Liderazgo Inspirador</h1>
+    <p>Te acompaño a descubrir tu potencial, fortalecer tu liderazgo auténtico y transformar positivamente tu entorno.</p>
+    <a href="#about" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </a>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2>Sobre Mí</h2>
+      <div class="about-me">
+        <img src="https://lh3.googleusercontent.com/d/1sUxDaxQbKxiMgfmuoChhdYZvOqu2wRPF=w2048?name=Red%20Modern%20Formal%20Facebook%20Profile%20Picture_20250621_115809_0000.png" alt="Foto de Luis Armando Pinta Cajilema">
+        <div class="about-me-content">
+          <p>Soy <strong>Luis Armando Pinta Cajilema</strong>, apasionado por el crecimiento personal y profesional. Mi enfoque de liderazgo se basa en la empatía, la visión estratégica y la capacidad de inspirar desde el ejemplo. Vivo en Ecuador y creo que el liderazgo es una forma de servir y dejar huella.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Mi Filosofía de Liderazgo</h2>
+      <div class="quote">
+        "El verdadero líder no busca seguidores; cultiva otros líderes."
+      </div>
+      <p style="text-align: center;">El liderazgo no es un título, sino un compromiso diario. Creo firmemente que todos tenemos la capacidad de impactar de manera positiva, fomentando un ambiente de confianza, colaboración y crecimiento mutuo.</p>
+    </section>
+
+    <section class="section">
+      <h2>¿Qué Encontrarás Aquí?</h2>
+      <div class="cards-container">
+        <div class="card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Reflexiones</h3>
+          <p>Ideas y pensamientos sobre un liderazgo con propósito y autenticidad en el mundo actual.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-book-open"></i>
+          <h3>Historias</h3>
+          <p>Relatos reales de superación y aprendizaje que demuestran el poder de un liderazgo efectivo.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-tools"></i>
+          <h3>Recursos</h3>
+          <p>Herramientas y guías gratuitas para fortalecer tu confianza, visión y habilidades de comunicación.</p>
+        </div>
+      </div>
+      <div class="center-button">
+        <a href="#contacto" class="button">Conectemos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <p>© 2025 Luis Armando Pinta Cajilema · Liderazgo Inspirador</p>
+    <p>Hecho con <i class="fas fa-heart" style="color: var(--accent-color);"></i> en Ecuador</p>
+    <p>Contacto: <a href="mailto:luispinta981@gmail.com">luispinta981@gmail.com</a></p>
+  </footer>
+
 </body>
 </html>
